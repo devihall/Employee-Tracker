@@ -99,14 +99,14 @@ app.delete('/api/department/:id', (req, res) => {
 
 
 app.post('/api/department', ({ body }, res) => {
-  const errors = inputCheck(body, 'department_name');
+  const errors = inputCheck(body, 'Department_name');
   console.log(body)
   if (errors) {
     console.log(errors);
     res.status(400).json({ error: res.message });
     return;
   }
-  const sql = `INSERT INTO department (department_name)
+  const sql = `INSERT INTO department (Department_name)
   VALUES (?)`;
   const params = [body.department_name];
 
