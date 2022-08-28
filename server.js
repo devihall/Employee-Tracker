@@ -1,6 +1,6 @@
 const express = require("express");
 const mysql = require("mysql2");
-
+const inputCheck = require("./inputCheck");
 const PORT = process.env.PORT || 3001;
 const app = express();
 
@@ -79,36 +79,12 @@ app.delete('/api/department/:id', (req, res) => {
   });
 });
 
-// add a department
-app.post("/api/candidate/:id", ({ body }, res) => {
-  const sql = `INSERT INTO department (department_name)  VALUES (?)`;
-  const params = [body.department_name];
-
-  db.query(sql, params, (err, row) => {
-    if (err) {
-      res.status(400).json({ error: err.message });
-      return;
-    }
-    res.json({
-      message: "success",
-      data: body,
-    });
-  });
-});
-
-
-
-// app.post('/api/department', ({ body }, res) => {
-// //   const errors = inputCheck(body, 'first_name', 'last_name', 'industry_connected');
-//   if (err) {
-//     res.statusMessage(400).json({ error: res.message });
-//     return;
-//   }
-//   const sql = `INSERT INTO department (department_name)
-//   VALUES (?)`;
+// // add a department
+// app.post("/api/candidate/:id", ({ body }, res) => {
+//   const sql = `INSERT INTO department (department_name)  VALUES (?)`;
 //   const params = [body.department_name];
 
-//   db.query(sql, params, (err, result) => {
+//   db.query(sql, params, (err, row) => {
 //     if (err) {
 //       res.status(400).json({ error: err.message });
 //       return;
@@ -119,6 +95,33 @@ app.post("/api/candidate/:id", ({ body }, res) => {
 //     });
 //   });
 // });
+
+
+
+app.post('/api/department', ({ body }, res) => {
+  const errors = inputCheck(body, 'department_name');
+  console.log(body)
+  if (errors) {
+    console.log(errors);
+    res.status(400).json({ error: res.message });
+    return;
+  }
+  const sql = `INSERT INTO department (department_name)
+  VALUES (?)`;
+  const params = [body.department_name];
+
+  db.query(sql, params, (err, result) => {
+    console.log(result);
+    if (err) {
+      res.status(400).json({ error: err.message });
+      return;
+    }
+    res.json({
+      message: "success",
+      data: body,
+    });
+  });
+});
 
 // Default response for any other request (Not Found)
 app.use((req, res) => {
