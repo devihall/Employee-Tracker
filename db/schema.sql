@@ -1,6 +1,6 @@
 CREATE TABLE department(
 id INT AUTO_INCREMENT,
-name VARCHAR(30)NOT NULL,
+Department_name VARCHAR(30)NOT NULL,
 PRIMARY KEY (id)
 );
 

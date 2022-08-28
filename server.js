@@ -108,7 +108,7 @@ app.post('/api/department', ({ body }, res) => {
   }
   const sql = `INSERT INTO department (Department_name)
   VALUES (?)`;
-  const params = [body.department_name];
+  const params = [body.Department_name];
 
   db.query(sql, params, (err, result) => {
     console.log(result);
