@@ -1,23 +1,19 @@
+DROP TABLE IF EXISTS department, role;
+
 CREATE TABLE department(
-id INT AUTO_INCREMENT,
+id INT UNIQUE AUTO_INCREMENT,
 Department_name VARCHAR(30)NOT NULL,
 PRIMARY KEY (id)
 );
 
--- CREATE TABLE role(
---    id INT AUTO_INCREMENT, 
---    Title VARCHAR(30),
---    department_id INT,
---    Salary INT,
---    PRIMARY KEY (id),
---    FOREIGN KEY (name)
---    REFERENCES department(id)
+CREATE TABLE role(
+   id INT AUTO_INCREMENT, 
+   Title VARCHAR(30),
+   Department_id INT,
+   Salary INT,
+   PRIMARY KEY (id),
+   FOREIGN KEY (Department_id)
+   REFERENCES Department(id)
+   ON DELETE SET NULL
+);
 
--- )
--- CREATE TABLE Orders (
---     OrderID int NOT NULL,
---     OrderNumber int NOT NULL,
---     PersonID int,
---     PRIMARY KEY (OrderID),
---     FOREIGN KEY (PersonID) REFERENCES Persons(PersonID)
--- );

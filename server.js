@@ -25,7 +25,9 @@ const db = mysql.createConnection(
 
 // Get all departments
 app.get('/api/department', (req, res) => {
-  const sql = `SELECT * FROM department`;
+  const sql = `SELECT role. *, department.Department_name AS department
+FROM role 
+LEFT JOIN department ON role.Department_id=department.id`;
 
   db.query(sql, (err, rows) => {
     if (err) {
@@ -41,7 +43,10 @@ app.get('/api/department', (req, res) => {
 
 // Get a single department
 app.get('/api/department/:id', (req, res) => {
-  const sql = `SELECT * FROM department WHERE id = ?`;
+  const sql = `SELECT role. *, department.Department_name AS department
+FROM role 
+LEFT JOIN department ON role.Department_id=department.id
+WHERE role.id =?`;
   const params = [req.params.id];
 
   db.query(sql, params, (err, row) => {
@@ -79,33 +84,18 @@ app.delete('/api/department/:id', (req, res) => {
   });
 });
 
-// // add a department
-// app.post("/api/candidate/:id", ({ body }, res) => {
-//   const sql = `INSERT INTO department (department_name)  VALUES (?)`;
-//   const params = [body.department_name];
-
-//   db.query(sql, params, (err, row) => {
-//     if (err) {
-//       res.status(400).json({ error: err.message });
-//       return;
-//     }
-//     res.json({
-//       message: "success",
-//       data: body,
-//     });
-//   });
-// });
-
-
-
+//// add a department
 app.post('/api/department', ({ body }, res) => {
   const errors = inputCheck(body, 'Department_name');
+
   console.log(body)
+
   if (errors) {
     console.log(errors);
     res.status(400).json({ error: res.message });
     return;
   }
+
   const sql = `INSERT INTO department (Department_name)
   VALUES (?)`;
   const params = [body.Department_name];
