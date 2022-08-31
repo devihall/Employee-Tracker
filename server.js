@@ -61,7 +61,6 @@ WHERE role.id =?`;
   });
 });
 
-
 // Delete a department
 app.delete('/api/department/:id', (req, res) => {
   const sql = `DELETE FROM department WHERE id = ?`;
@@ -112,6 +111,26 @@ app.post('/api/department', ({ body }, res) => {
     });
   });
 });
+
+//Get all roles
+
+
+// Get all departments
+app.get('/api/role', (req, res) => {
+  const sql = `SELECT * FROM role`;
+
+  db.query(sql, (err, rows) => {
+    if (err) {
+      res.status(500).json({ error: err.message });
+      return;
+    }
+    res.json({
+      message: 'success',
+      data: rows
+    });
+  });
+});
+
 
 // Default response for any other request (Not Found)
 app.use((req, res) => {

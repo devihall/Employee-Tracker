@@ -17,3 +17,14 @@ CREATE TABLE role(
    ON DELETE SET NULL
 );
 
+CREATE TABLE employee(
+   id INT AUTO_INCREMENT, 
+   first_name VARCHAR(30),
+   last_name VARCHAR(30),
+   role_id INT,
+   PRIMARY KEY (id),
+   FOREIGN KEY (role_id)
+   REFERENCES role(id)
+   ON DELETE SET NULL,
+   manager VARCHAR(30)
+);

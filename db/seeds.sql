@@ -16,3 +16,16 @@ INSERT INTO role(id, Title, Department_id, Salary)
  (7, 'Legal Team Lead', 4, 250000),
  (8, 'Lawyer', 4, 190000)
 
+
+INSERT INTO employee (id, first_name, last_name, role_id, manager)
+ VALUES  
+ (1, 'John' 'Doe', 1, null),
+ (2, 'Mike' 'Chan', 1, 'John Doe'),
+ (3, 'Ashley' 'Rodriguez', 2, null),
+ (4, 'Kevin' 'Tupik', 2, 'Ashley Rodriguez'),
+ (5, 'Kunal Singh', 3, null),
+ (6, 'Malia' 'Brown', 3, 'Kunal Singh'),
+ (7, 'Sarah' 'Lourd', 4, null),
+ (8, 'Tom' 'Allen', 4, 'Sarah Lourd')
+ (9, 'Sam Kash', 1, 'Ashley Rodriguez')
+
