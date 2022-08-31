@@ -14,18 +14,18 @@ INSERT INTO role(id, Title, Department_id, Salary)
  (5, 'Account Manager', 3, 160000),
  (6, 'Accountant', 3, 125000),
  (7, 'Legal Team Lead', 4, 250000),
- (8, 'Lawyer', 4, 190000)
+ (8, 'Lawyer', 4, 190000);
 
 
-INSERT INTO employee (id, first_name, last_name, role_id, manager)
+INSERT INTO employee ( first_name, last_name, role_id, manager)
  VALUES  
- (1, 'John' 'Doe', 1, null),
- (2, 'Mike' 'Chan', 1, 'John Doe'),
- (3, 'Ashley' 'Rodriguez', 2, null),
- (4, 'Kevin' 'Tupik', 2, 'Ashley Rodriguez'),
- (5, 'Kunal Singh', 3, null),
- (6, 'Malia' 'Brown', 3, 'Kunal Singh'),
- (7, 'Sarah' 'Lourd', 4, null),
- (8, 'Tom' 'Allen', 4, 'Sarah Lourd')
- (9, 'Sam Kash', 1, 'Ashley Rodriguez')
+ ('John' 'Doe', 1, null),
+ ('Mike' 'Chan', 1, 'John Doe'),
+ ('Ashley' 'Rodriguez', 2, null),
+ ('Kevin' 'Tupik', 2, 'Ashley Rodriguez'),
+ ('Kunal' 'Singh', 3, null),
+ ('Malia' 'Brown', 3, 'Kunal Singh'),
+ ('Sarah' 'Lourd', 4, null),
+ ('Tom' 'Allen', 4, 'Sarah Lourd'),
+ ('Sam' 'Kash', 1, 'Ashley Rodriguez');
 

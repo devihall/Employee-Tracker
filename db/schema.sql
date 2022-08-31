@@ -26,5 +26,6 @@ CREATE TABLE employee(
    FOREIGN KEY (role_id)
    REFERENCES role(id)
    ON DELETE SET NULL,
-   manager VARCHAR(30)
+   manager_id FOREIGN KEY (manager_id) 
+   REFERENCES employee(id),
 );
