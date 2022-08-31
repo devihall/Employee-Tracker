@@ -17,7 +17,7 @@ INSERT INTO role(id, Title, Department_id, Salary)
  (8, 'Lawyer', 4, 190000);
 
 
-INSERT INTO employee ( first_name, last_name, role_id, manager)
+INSERT INTO employee ( first_name, last_name, role_id, manager_id)
  VALUES  
  ('John' 'Doe', 1, null),
  ('Mike' 'Chan', 1, 'John Doe'),
