@@ -112,10 +112,9 @@ app.post('/api/department', ({ body }, res) => {
   });
 });
 
-//Get all roles
 
 
-// Get all departments
+// Get all roles
 app.get('/api/role', (req, res) => {
   const sql = `SELECT * FROM role`;
 
@@ -130,6 +129,59 @@ app.get('/api/role', (req, res) => {
     });
   });
 });
+
+//Add roles       ////need to add department////
+app.post("/api/role", ({ body }, res) => {
+  const errors = inputCheck(body, "Title","Salary", "Department_id");
+
+  console.log(body);
+
+  if (errors) {
+    console.log(errors);
+    res.status(400).json({ error: res.message });
+    return;
+  }
+
+  const sql = `INSERT INTO role (Title, Salary, Department_id)
+  VALUES (?,?,?)`;
+  const params = [body.Title, body.Salary, body.Department_id];
+
+  db.query(sql, params, (err, result) => {
+    console.log(result);
+    if (err) {
+      res.status(400).json({ error: err.message });
+      return;
+    }
+    res.json({
+      message: "success",
+      data: body,
+    });
+  });
+});
+
+
+
+
+//get all Employees   //////need to add left join manger and department
+app.get("/api/employee", (req, res) => {
+  const sql = `SELECT * FROM employee`;
+  //////need to add left join manger and department
+
+
+  db.query(sql, (err, rows) => {
+    if (err) {
+      res.status(500).json({ error: err.message });
+      return;
+    }
+    res.json({
+      message: "success",
+      data: rows,
+    });
+  });
+});
+
+
+
 
 
 // Default response for any other request (Not Found)
