@@ -130,7 +130,7 @@ app.get('/api/role', (req, res) => {
   });
 });
 
-//Add roles       ////need to add department////
+//Add roles       ///////////need to add department//////////////
 app.post("/api/role", ({ body }, res) => {
   const errors = inputCheck(body, "Title","Salary", "Department_id");
 
@@ -162,7 +162,7 @@ app.post("/api/role", ({ body }, res) => {
 
 
 
-//get all Employees   //////need to add left join manger and department
+//get all Employees   //////need to add left join manger and department//////
 app.get("/api/employee", (req, res) => {
   const sql = `SELECT * FROM employee`;
   //////need to add left join manger and department
