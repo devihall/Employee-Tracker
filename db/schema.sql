@@ -30,3 +30,8 @@ CREATE TABLE employee(
    FOREIGN KEY (manager_id) 
    REFERENCES employee(id)
 );
+
+-- SELECT * FROM employee
+-- LEFT JOIN role ON employee.role_id = role.id
+-- LEFT JOIN role ON manager_id = employee.id
+
