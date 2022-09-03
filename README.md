@@ -1,3 +1,4 @@
+
 ## Employee-Tracker
 # Description
 A command-line application that accepts user input
@@ -13,3 +14,6 @@ When users choose to update an employee role, then they are prompted to select a
 ## video walk-through
 https://watch.screencastify.com/v/wKp3W939Vd5YUE39856Y
 
+<img width="731" alt="Screen Shot 2022-09-02 at 9 09 00 PM" src="https://user-images.githubusercontent.com/107077794/188250274-d0276c13-b446-44f0-88bd-454019330036.png">
+<img width="547" alt="Screen Shot 2022-09-02 at 9 09 16 PM" src="https://user-images.githubusercontent.com/107077794/188250275-4e5d880c-06d6-4e3f-9e09-b66884f1409f.png">
+<img width="877" alt="Screen Shot 2022-09-02 at 9 09 54 PM" src="https://user-images.githubusercontent.com/107077794/188250276-303e0773-3551-48e6-a557-941c0292ee3f.png">
