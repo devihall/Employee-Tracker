@@ -1,7 +1,9 @@
 
 # Employee-Tracker
 ## Description
-A command-line application that accepts user input.
+A command-line application to manage a company's employee database, using Node.js, Inquirer, and MySQL.
+
+Application that accepts user input from the command-line.
 When the app is started up you are presented with the following options: view all departments, view all roles, view all employees, add a department, add a role, add an employee, and update an employee role.
 When the user chooses to view all departments, the user is presented with a formatted table showing department names and department ids
 When the user chooses to view all roles, then they are presented with the job title, role id, the department that role belongs to, and the salary for that role
